@@ -19,6 +19,11 @@
         * isolated from other servers
     * resource utilisation is good in VM
 3. Containerization
+    * we will have containers installed in VM...
+    * containers are isolated from each other, system resources are shared...
+    * containers take resources based on demand, it don't block resources
+    * boot time is very less --> with in seconds your application is available
+
 
 
 
