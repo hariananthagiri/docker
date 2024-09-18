@@ -156,6 +156,6 @@ docker inspect <image_id> or <image_name>
 * container ports are different and vm ports are different 
 * we will store multiple websites in single server and manage it with port numbers
 
-
-
-
+#### Dockerfiles
+* A decleretive way of createing our own image...
+* **Instruction**
