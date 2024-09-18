@@ -23,7 +23,13 @@
     * containers are isolated from each other, system resources are shared...
     * containers take resources based on demand, it don't block resources
     * boot time is very less --> with in seconds your application is available
+* **container/image** = Fat OS(4GB/3GB) + application run time + created users + created a directory + installed application
+* **AMI(Amazon machine image)** = server + configured the server using ansible + stop server + take AMI
+* **Docker Image** = Base OS(5MB-250MB) + application run time + created users + created a directory + installed application = max 500MB = immutable image = can take from DEV to PROD  
+* Docker is portable
 
+### Docker installation
+    * 
 
 
 
