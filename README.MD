@@ -158,4 +158,6 @@ docker inspect <image_id> or <image_name>
 
 #### Dockerfiles
 * A decleretive way of createing our own image...
-* **Instruction**
+##### Instruction
+* **FROM**
+
