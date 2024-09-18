@@ -121,6 +121,35 @@ docker run -d -p host port-number:container port-number image_name
 docker run -d -p host port-number:container port-number --name <write_name> image_name 
 ```
 * duplicate names are not allowed one name is used only onetime all names must be uniqe
+* to get out from the container use below command
+```
+ctrl + c
+```
+* **CONTAINER**
+* container is nothing but a VM like light weight VM 
+* to login to the existing container or running container use below command
+```
+docker exec -it <container_id> or <name> bash
+```
+* now you can login with root axis and conatainer_id as there (i.e root@a764b7f56dbb:/#)
+* where
+* i -input & t - terminal
+* after login to existing container you see as below
+```
+root@container_id:/#
+```
+* **example**
+* root@a764b7f56dbb:/#
+* to see the os of the container use below command
+```
+cat /etc/*release
+```
+* to inspect in docker container or image use below command
+```
+docker ps
+docker inspect <container_id> or <container_name>
+docker inspect <image_id> or <image_name>
+```
 
 * **NOTE**
 * docker container will have **0-65535** ports
