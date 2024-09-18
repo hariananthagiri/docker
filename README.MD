@@ -116,7 +116,10 @@ docker run -d -p host port-number:container port-number image_name
 * **example**
 * docker run -d -p 8080:80 nginx
 * alocated port cannot be used again 
-
+* to give particular name in docker use below command
+```
+docker run -d -p host port-number:container port-number --name <write_name> image_name 
+```
 * **NOTE**
 * docker container will have **0-65535** ports
 * container ports are different and vm ports are different 
