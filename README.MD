@@ -120,10 +120,13 @@ docker run -d -p host port-number:container port-number image_name
 ```
 docker run -d -p host port-number:container port-number --name <write_name> image_name 
 ```
+* duplicate names are not allowed one name is used only onetime all names must be uniqe
+
 * **NOTE**
 * docker container will have **0-65535** ports
 * container ports are different and vm ports are different 
 * we will store multiple websites in single server and manage it with port numbers
+
 
 
 
