@@ -181,6 +181,6 @@ docker build -t <IMAGE>:<VERSION> .
     * it should be the first instruction in Dockerfile
 * **SYNTAX**
 ```
-FROM <IMAGE>:<VERSION> 
+FROM <BASE_OS-IMAGE>:<VERSION> 
 ```
 * If we wont give any version by default it takes latest
