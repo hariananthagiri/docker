@@ -1,4 +1,6 @@
 # DOCKER
+* docker runs on linux servers not on windows 
+* in windows we have a software called docker desktop but this software runs linux in background
 * We have three types of methods in docker
 1. physical server
     * booting time is very high
@@ -27,6 +29,7 @@
 * **AMI(Amazon machine image)** = server + configured the server using ansible + stop server + take AMI
 * **Docker Image** = Base OS(5MB-250MB) + application run time + created users + created a directory + installed application = max 500MB = immutable image = can take from DEV to PROD  
 * Docker is portable
+* **image is static ==> VM**
 * **container is the running version of image**
 * we will get all these images pulled from docker hub we have to signup to docker hub account  
 
@@ -132,6 +135,8 @@ ctrl + c
 ```
 * **CONTAINER**
 * container is nothing but a VM like light weight VM 
+* when you run the docker image you will get the container
+* container is the running version of docker image
 * to login to the existing container or running container use below command
 ```
 docker exec -it <container_id> or <name> bash
@@ -149,6 +154,10 @@ root@container_id:/#
 ```
 cat /etc/*release
 ```
+* if we want to check the logs in docker use below command
+```
+docker logs <container-id>
+```
 * to inspect in docker container or image use below command
 ```
 docker ps
@@ -163,6 +172,7 @@ docker inspect <image_id> or <image_name>
 
 #### Dockerfiles
 * A decleretive way of createing our own image...
+* We can build the docker images and push to any docker repository
 * to build docker image use below command
 ```
 docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
@@ -170,6 +180,10 @@ docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
 * we can buid to local without pushing by using below command
 ```
 docker build -t <IMAGE>:<VERSION> .
+```
+* if we want to push what we build localy by using below command
+```
+docker tag -t <IMAGE>:<VERSION> .
 ```
 * WHERE
     * URL - it is used to push docker to  docker.io(dockerhub), ECR(Elastic Container Registroy), Nexus docker registroy etc.. 
@@ -183,4 +197,6 @@ docker build -t <IMAGE>:<VERSION> .
 ```
 FROM <BASE_OS-IMAGE>:<VERSION> 
 ```
+* **BASEOS**
+    * which os you want ex- centos, ubuntu, etc...
 * If we wont give any version by default it takes latest
