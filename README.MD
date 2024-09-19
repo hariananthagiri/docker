@@ -106,7 +106,7 @@ docker rmi image_id
 ```
 docker rmi `docker-images -a -q`
 ```
-* to see only existing image ids in docker use below command
+* to see all image ids in docker use below command
 ```
 docker images -a -q
 ```
