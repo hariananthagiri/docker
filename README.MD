@@ -311,4 +311,5 @@ ADD <URL> /desination/path/
 * We can use CMD and ENTRYPOINT for best results
     1. You can use CMD instruction to supply default arguements to ENTRYPOINT
     2. user can always override CMD arguements from run time
+10. USER
 
