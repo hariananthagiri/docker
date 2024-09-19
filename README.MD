@@ -312,4 +312,54 @@ ADD <URL> /desination/path/
     1. You can use CMD instruction to supply default arguements to ENTRYPOINT
     2. user can always override CMD arguements from run time
 10. USER
+    * The USER instruction in a Dockerfile is a fundamental tool that determines which user will execute commands both during the image build process and when running the    container. 
+    * By default, if no USER is specified, Docker will run commands as the root user, which can pose significant security risks.
+* **SYNTAX**
+```
+USER <user_name>
+```
+11. WORKDIR
+    * It is used to selecting the directory where we want to work
+    * the instructions which we given after workdir will run in that selected directory
+* **SYNTAX**
+```
+WORKDIR /path/of/directory
+```
+```
+docker run -d -it work:v1
+docker exec -it c02a912a bash
+```
+12. ARG
+* **ARG vs ENV**
+    * ARG instruction can provide values to the Dockerfile only at buildtime. ENV variables have access in the container
+    * How can I use ARG variables inside container?
+    * Assign the values of ARG to ENV variables so that you can access them inside container as well
+    * ARG instruction can be used before FROM instruction to provide values to FROM instruction.
+    * ARG value deffnied before FROM will not be accessed after FROM
+* **SYNTAX**
+```
+--build-arg variable=value
+```
+* we pass values at build time by using below command
+```
+docker build -t image-name:version --build-arg variable=value .
+```
+* **EXAMPLE**
+```
+docker build -t arg:v1 --build-arg username=hari krishna .
+```
+* we can use the combination of both ARG and ENV for the best result as shown below
+* we can assign the arg values to the env variables so that we can access it in the container as shown below
+```
+ARG COURSE
+ENV COURSE=${COURSE}
+```
+13. ONBUILD
+    * author of image: I want to force users of image to follow something
+    * it wont run on build time
+* **SYNTAX**
+```
+ONBUILD ADD index.html /usr/share/nginx/html/
+ONBUILD RUN <command>
+```
 
