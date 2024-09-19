@@ -139,7 +139,7 @@ ctrl + c
 * container is the running version of docker image
 * to login to the existing container or running container use below command
 ```
-docker exec -it <container_id> or <name> bash
+docker exec -it <container_id> or <name>:<version> bash or sh
 ```
 * now you can login with root axis and conatainer_id as there (i.e root@a764b7f56dbb:/#)
 * where
