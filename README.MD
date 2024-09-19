@@ -234,8 +234,11 @@ CMD ["nginx","-g","daemon off;"]
     * It is used for filtering the data
 * **SYNTAX**
 ```
-LABEL key1="value"/
-      key2="value"/
+LABEL key="value"
+```
+```
+LABEL key1="value"\
+      key2="value"\
       key3="value"
 ```
 * by using label we can filter the data in docker by using below command 
@@ -245,4 +248,27 @@ docker images --filter label=key="value"
 * if we don't know we can use help as below
 ```
 docker images --help
+```
+5. EXPOSE
+    * It is used to inform the docker that container runs on specific port number
+    * it just gives the information related to port number and portocal
+* **SYNTAX**
+```
+EXPOSE port-number/protocal
+```
+* by default it takes tcp protocal if we want we can give udp protocal
+* **EXAMPLE**
+```
+EXPOSE 80/tcp
+```
+6. ENV
+    * 
+* **SYNTAX**
+```
+ENV key="value"
+```
+```
+ENV key1="value"\
+    key2="value"\
+    key3="value"
 ```
