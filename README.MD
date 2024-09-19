@@ -193,10 +193,20 @@ docker tag -t <IMAGE>:<VERSION> .
 ##### Instruction
 1. FROM
     * it should be the first instruction in Dockerfile
+    * it is used to select base os
 * **SYNTAX**
 ```
 FROM <BASE_OS-IMAGE>:<VERSION> 
 ```
 * **BASEOS**
     * which os you want ex- centos, ubuntu, etc...
-* If we wont give any version by default it takes latest
+* **VERSION**
+    * If we won't give any version by default it takes latest
+2. RUN
+    * It is used to install packages or configure the image inside the base OS
+* **SYNTAX**
+```
+RUN <PACKAGE_NAME>
+RUN yum install nginx -y
+```
+3. 
