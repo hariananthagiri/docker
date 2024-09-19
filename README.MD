@@ -279,7 +279,7 @@ env
 ```
 * use env command to see all env variables stored
 7. COPY
-    * it is used to copy one file to other
+    * it is used to copy file from local to image
 * **SYNTAX**
 ```
 COPY source_file destination/where/to/copy
