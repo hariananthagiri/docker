@@ -224,8 +224,11 @@ RUN yum install nginx -y
     * CMD runs at the time of container creation...
 * **NOTE**
     * systemctl commands will not work in containers...
+    * command should be foregrounded and attached to the screen then you send it into background (to do this we use -d)
 * **SYNTAX**
 ```
 CMD ["nginx","-g","daemon off;"]
 ```
 * every word is given saparetly in double quotes "word"
+3. LABEL 
+    * 
