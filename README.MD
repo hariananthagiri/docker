@@ -272,3 +272,13 @@ ENV key1="value"\
     key2="value"\
     key3="value"
 ```
+* to see what env variables are there use below command
+```
+docker exec -it 3f03f9f304b1 bash
+env
+```
+* use env command to see all env variables stored
+7. COPY
+    * 
+8. ADD
+    * 
