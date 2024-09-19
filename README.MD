@@ -299,5 +299,9 @@ ADD file.tar /desination/path/
 ADD <URL> /desination/path/
 ```
 * tar is like a ZIP file 
+* **NOTE**
+    * when ever you do changes rebuild the image that time
+9. ENTRYPOINT
+
 
 
