@@ -231,4 +231,10 @@ CMD ["nginx","-g","daemon off;"]
 ```
 * every word is given saparetly in double quotes "word"
 3. LABEL 
-    * 
+    * It is used for filtering the data
+* **SYNTAX**
+```
+LABEL key1="value"/
+      key2="value"/
+      key3="value"
+```
