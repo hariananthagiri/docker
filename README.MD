@@ -230,11 +230,19 @@ RUN yum install nginx -y
 CMD ["nginx","-g","daemon off;"]
 ```
 * every word is given saparetly in double quotes "word"
-3. LABEL 
+4. LABEL 
     * It is used for filtering the data
 * **SYNTAX**
 ```
 LABEL key1="value"/
       key2="value"/
       key3="value"
+```
+* by using label we can filter the data in docker by using below command 
+```
+docker images --filter label=key="value"
+```
+* if we don't know we can use help as below
+```
+docker images --help
 ```
