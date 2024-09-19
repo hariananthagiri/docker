@@ -163,6 +163,24 @@ docker inspect <image_id> or <image_name>
 
 #### Dockerfiles
 * A decleretive way of createing our own image...
+* to build docker image use below command
+```
+docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
+```
+* we can buid to local without pushing by using below command
+```
+docker build -t <IMAGE>:<VERSION> .
+```
+* WHERE
+    * URL - it is used to push docker to  docker.io(dockerhub), ECR(Elastic Container Registroy), Nexus docker registroy etc.. 
+        * if we dont give any url by default it wil push to docker hub
+    * -t - taging
+    * dot(.) - current directory
 ##### Instruction
-* **FROM**
-
+1. FROM
+    * it should be the first instruction in Dockerfile
+* **SYNTAX**
+```
+FROM <IMAGE>:<VERSION> 
+```
+* If we wont give any version by default it takes latest
