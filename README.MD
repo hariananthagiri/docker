@@ -279,6 +279,14 @@ env
 ```
 * use env command to see all env variables stored
 7. COPY
-    * 
+    * it is used to copy one file to other
+* **SYNTAX**
+```
+COPY source_file destination/where/to/copy
+```
+* **EXAMPLE**
+```
+COPY index.html /usr/share/nginx/html/
+``` 
 8. ADD
     * 
