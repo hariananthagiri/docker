@@ -289,4 +289,15 @@ COPY source_file destination/where/to/copy
 COPY index.html /usr/share/nginx/html/
 ``` 
 8. ADD
-    * 
+* **COPY vs ADD**
+    * both are used to copy the files from local to image... but ADD have 2 extra capabilities
+        1. It can directly download files from internet
+        2. It can directly untar the tar files..
+* **SYNTAX**
+```
+ADD file.tar /desination/path/
+ADD <URL> /desination/path/
+```
+* tar is like a ZIP file 
+
+
