@@ -63,9 +63,9 @@ docker images
 ```
 docker pull image_name
 ```
-* to pull a partical version image use below command
+* to pull a partical version image use below command and default tag was latest
 ```
-docker pull image_name:version
+docker pull image_name:version or tag
 ```
 * to create a container use below command
 ```
@@ -104,7 +104,7 @@ docker rmi image_id
 ```
 * to remove all images at a time use below command
 ```
-docker rmi 'docker-images -a -q'
+docker rmi `docker-images -a -q`
 ```
 * to see only existing image ids in docker use below command
 ```
