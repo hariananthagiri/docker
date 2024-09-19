@@ -92,7 +92,7 @@ docker stop container_id
 docker rm container_id 
 docker rm -f container_id (to remove without stoping force remove)
 ```
-* to do **PULL+CREATE+START** images at a time use below command
+* to do **PULL+CREATE+START** pull images and create container and start container at a time use below command
 ```
 docker run image_name (it will run in foreground)
 
@@ -102,18 +102,22 @@ docker run -d image_name (it is for detach it will run in background)
 ```
 docker rmi image_id
 ```
-* to remove all images at a time use below command
+* to remove all images and containers at a time use below command
 ```
-docker rmi `docker-images -a -q`
+docker rmi `docker-images -a -q` (for images)
+docker rm -f `docker ps -a -q    (for container)
 ```
 * to see all image ids in docker use below command
 ```
-docker images -a -q
+docker images -a -q (for images)
+docker ps -a -q (for container)
 ```
 * to mentiom the port number in docker use below command
 ```
 docker run -d -p host port-number:container port-number image_name
 ```
+* host port-number is user defind we can give whatever we want
+* container port-number is docker port it is fixed we can give our own 
 * **example**
 * docker run -d -p 8080:80 nginx
 * alocated port cannot be used again 
