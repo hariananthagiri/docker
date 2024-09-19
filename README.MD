@@ -198,15 +198,34 @@ docker tag -t <IMAGE>:<VERSION> .
 ```
 FROM <BASE_OS-IMAGE>:<VERSION> 
 ```
+* **example**
+```
+FROM centos:8
+```
 * **BASEOS**
     * which os you want ex- centos, ubuntu, etc...
 * **VERSION**
     * If we won't give any version by default it takes latest
 2. RUN
     * It is used to install packages or configure the image inside the base OS
+    * RUN instruction runs at the time of image building
 * **SYNTAX**
 ```
 RUN <PACKAGE_NAME>
+```
+* **example**
+```
+#almalinux is same as centos
+FROM almalinux:8
 RUN yum install nginx -y
 ```
-3. 
+3. CMD
+    * CMD Instruction makes your container runing...
+    * CMD runs at the time of container creation...
+* **NOTE**
+    * systemctl commands will not work in containers...
+* **SYNTAX**
+```
+CMD ["nginx","-g","daemon off;"]
+```
+* every word is given saparetly in double quotes "word"
