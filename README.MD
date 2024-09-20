@@ -190,11 +190,16 @@ docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
 ```
 * we can buid to local without pushing by using below command
 ```
-docker build -t <IMAGE>:<VERSION> .
+docker build  <IMAGE>:<VERSION> .
 ```
 * if we want to push what we build localy by using below command
 ```
-docker tag -t <IMAGE>:<VERSION> .
+docker tag  <IMAGE>:<VERSION> 
+```
+* if we want to push what we build to particular  by using below command
+```
+docker tag <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+
 ```
 * WHERE
     * URL - it is used to push docker to  docker.io(dockerhub), ECR(Elastic Container Registroy), Nexus docker registroy etc.. 
