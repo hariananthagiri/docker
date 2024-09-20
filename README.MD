@@ -374,3 +374,20 @@ ONBUILD ADD index.html /usr/share/nginx/html/
 ONBUILD RUN <command>
 ```
 
+* **GENRAL OF DOCKER SYNTAX WITH INSTRUCTION**
+``` Dockerfile
+FROM centos:8
+RUN yum install nginx -y
+CMD ["google.com"]
+ENTRYPOINT ["ping"]
+COPY index.html /usr/share/nginx/html/
+ADD https://raw.githubusercontent.com/daws-76s/notes/master/session-01.txt /tmp/
+USER $username
+ARG COURSE
+RUN echo "Course: ${COURSE}"
+ENV COURSE=${COURSE}
+LABEL TRAINING="DEVOPS"
+EXPOSE 80/tcp
+WORKDIR /tmp
+ONBUILD ADD index.html /usr/share/nginx/html/
+```
