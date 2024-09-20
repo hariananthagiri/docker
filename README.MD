@@ -225,6 +225,7 @@ FROM centos:8
     * which os you want ex- centos, ubuntu, etc...
 * **VERSION**
     * If we won't give any version by default it takes latest
+
 2. RUN
     * It is used to install packages or configure the image inside the base OS
     * RUN instruction runs at the time of image building
@@ -239,6 +240,7 @@ RUN <PACKAGE_NAME>
 FROM almalinux:8
 RUN yum install nginx -y
 ```
+
 3. CMD
     * CMD Instruction makes your container runing...
     * CMD runs at the time of container creation...
@@ -251,9 +253,17 @@ RUN yum install nginx -y
 ```
 CMD ["nginx","-g","daemon off;"]
 ```
-* every word is given saparetly in double quotes "word"
+* every word is given saparetly in double quotes and saperated with cama(,)
+
+* **RUN vs CMD**
+    * RUN instruction runs at the time of image building
+    * CMD runs at the time of container creation
+    * CMD command can be overridden by another command at run time.
+
+
 4. LABEL 
-    * It is used for filtering the data
+    * It is used for filtering the data and images available
+    * LABEL instruction add meta data to the image
 * **SYNTAX**
 ```
 LABEL key="value"
@@ -271,6 +281,7 @@ docker images --filter label=key="value"
 ```
 docker images --help
 ```
+
 5. EXPOSE
     * It is used to inform the docker that container runs on specific port number
     * it just gives the information related to port number and portocal
@@ -283,6 +294,7 @@ EXPOSE port-number/protocal
 ```
 EXPOSE 80/tcp
 ```
+
 6. ENV
 * it is used to pass ENV variables to docker
 * **SYNTAX**
@@ -300,6 +312,7 @@ docker exec -it 3f03f9f304b1 bash
 env
 ```
 * use env command to see all env variables stored
+
 7. COPY
     * it is used to copy file from local to image
 * **SYNTAX**
@@ -310,6 +323,7 @@ COPY source_file destination/where/to/copy
 ```
 COPY index.html /usr/share/nginx/html/
 ``` 
+
 8. ADD
 * **COPY vs ADD**
     * both are used to copy the files from local to image... but ADD have 2 extra capabilities
@@ -323,6 +337,7 @@ ADD <URL> /desination/path/
 * tar is like a ZIP file 
 * **NOTE**
     * when ever you do changes rebuild the image that time
+
 9. ENTRYPOINT
 * **CMD vs ENTRYPOINT**
     1. CMD command can be overridden by another command at run time.
@@ -331,6 +346,7 @@ ADD <URL> /desination/path/
 * We can use CMD and ENTRYPOINT for best results
     1. You can use CMD instruction to supply default arguements to ENTRYPOINT
     2. user can always override CMD arguements from run time
+
 10. USER
     * The USER instruction in a Dockerfile is a fundamental tool that determines which user will execute commands both during the image build process and when running the    container. 
     * By default, if no USER is specified, Docker will run commands as the root user, which can pose significant security risks.
@@ -338,6 +354,7 @@ ADD <URL> /desination/path/
 ```
 USER <user_name>
 ```
+
 11. WORKDIR
     * It is used to selecting the directory where we want to work
     * the instructions which we given after workdir will run in that selected directory
@@ -349,6 +366,7 @@ WORKDIR /path/of/directory
 docker run -d -it work:v1
 docker exec -it c02a912a bash
 ```
+
 12. ARG
 * **ARG vs ENV**
     * ARG instruction can provide values to the Dockerfile only at buildtime. ENV variables have access in the container
@@ -374,6 +392,7 @@ docker build -t arg:v1 --build-arg username=hari krishna .
 ARG COURSE
 ENV COURSE=${COURSE}
 ```
+
 13. ONBUILD
     * author of image: I want to force users of image to follow something
     * it wont run on build time
@@ -409,3 +428,10 @@ ARG version
 FROM centos:8
 ```
 * we cant use version after from instruction
+
+* **VARIABLE**
+* TO USE THE VARIABLE USE AS BELOW
+```
+variable_name=value
+$variable_name (to use the stored variable value)
+```
