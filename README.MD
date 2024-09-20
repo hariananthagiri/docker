@@ -391,3 +391,12 @@ EXPOSE 80/tcp
 WORKDIR /tmp
 ONBUILD ADD index.html /usr/share/nginx/html/
 ```
+* **NOTE**
+* on special exception we use ARG instruction before or prior to FROM instruction
+* ARG value deffnied before FROM will not be accessed after FROM
+* **SYNTAX**
+``` Dockerfile
+ARG version
+FROM centos:8
+```
+* we cant use version after from instruction
