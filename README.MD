@@ -227,6 +227,7 @@ FROM centos:8
 2. RUN
     * It is used to install packages or configure the image inside the base OS
     * RUN instruction runs at the time of image building
+    * if you want to install any sotweres run any commnd or configure anything at the time of image building we use it
 * **SYNTAX**
 ```
 RUN <PACKAGE_NAME>
