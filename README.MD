@@ -187,6 +187,7 @@ docker inspect <image_id> or <image_name>
 * we can buid docker image localy use below command
 ```
 docker build  <IMAGE>:<VERSION> .
+docker build -t <IMAGE>:<VERSION> .
 ```
 * if we want to push what we build localy by using below command
 ```
