@@ -374,7 +374,7 @@ ONBUILD ADD index.html /usr/share/nginx/html/
 ONBUILD RUN <command>
 ```
 
-* **GENRAL OF DOCKER SYNTAX WITH INSTRUCTION**
+* **GENRAL SYNTAX OF DOCKER WITH INSTRUCTION**
 ``` Dockerfile
 FROM centos:8
 RUN yum install nginx -y
