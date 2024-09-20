@@ -1,4 +1,5 @@
 # DOCKER
+* It is a tool that create containers
 * docker runs on linux servers not on windows 
 * in windows we have a software called docker desktop but this software runs linux in background
 * We have three types of methods in docker
@@ -31,8 +32,18 @@
 * Docker is portable
 * **image is static ==> VM**
 * **container is the running version of image**
-* we will get all these images pulled from docker hub we have to signup to docker hub account  
-
+* we will get all these images pulled from docker hub we have to signup to docker hub account 
+#### Docker image
+* it is a read only template, a lightweight standalone executable package of softwere that includes everything needed to run an application
+* it contains set of instructions for createing a container that run on docker platform
+* immutable
+* number of layers
+* Doker image = **application code + Dependencys + Libraries & Tools + Base OS**
+#### Container
+* it is like vircual meachine it does not have any OS
+* container is nothing but a VM like light weight VM 
+* when you run the docker image you will get the container
+* container is the running version of docker image
 ### Docker installation
 * create a server(centos) by loging in to aws account 
 * go to chrome type docker install click on docker engine select centos
@@ -133,10 +144,6 @@ docker run -d -p host port-number:container port-number --name <write_name> imag
 ```
 ctrl + c
 ```
-* **CONTAINER**
-* container is nothing but a VM like light weight VM 
-* when you run the docker image you will get the container
-* container is the running version of docker image
 * to login to the existing container or running container use below command
 ```
 docker exec -it <container_id> or <name>:<version> bash or sh
