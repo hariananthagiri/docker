@@ -275,7 +275,7 @@ EXPOSE port-number/protocal
 EXPOSE 80/tcp
 ```
 6. ENV
-    * 
+* it is used to pass ENV variables to docker
 * **SYNTAX**
 ```
 ENV key="value"
