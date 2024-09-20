@@ -122,7 +122,7 @@ docker rmi image_id
 ```
 * to remove all images and containers at a time use below command
 ```
-docker rmi `docker-images -a -q` (for images)
+docker rmi `docker images -a -q` (for images)
 docker rm -f `docker ps -a -q    (for container)
 ```
 * to see all image ids in docker use below command
