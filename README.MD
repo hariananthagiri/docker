@@ -196,14 +196,13 @@ docker build  <IMAGE>:<VERSION> .
 ```
 docker tag  <IMAGE>:<VERSION> 
 ```
-* if we want to push what we build to particular  by using below command
+* if we want to push to docker hub what we build by using below command
 ```
 docker tag <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
-```
-* if we want to push what we build to particular  by using below command
-```
+docker login
 docker push <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
 ```
+
 * WHERE
     * URL - it is used to push docker to  docker.io(dockerhub), ECR(Elastic Container Registroy), Nexus docker registroy etc.. 
         * if we dont give any url by default it wil push to docker hub
