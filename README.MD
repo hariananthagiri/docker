@@ -184,17 +184,17 @@ docker inspect <image_id> or <image_name>
 #### Dockerfiles
 * A decleretive way of createing our own image...
 * We can build the docker images and push to any docker repository
-* to build docker image use below command
-```
-docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
-```
-* we can buid to local without pushing by using below command
+* we can buid docker image localy use below command
 ```
 docker build  <IMAGE>:<VERSION> .
 ```
 * if we want to push what we build localy by using below command
 ```
-docker tag  <IMAGE>:<VERSION> 
+docker tag  <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+```
+* to build docker image to docker use below command
+```
+docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
 ```
 * if we want to push to docker hub what we build by using below command
 ```
