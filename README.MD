@@ -199,7 +199,10 @@ docker tag  <IMAGE>:<VERSION>
 * if we want to push what we build to particular  by using below command
 ```
 docker tag <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
-
+```
+* if we want to push what we build to particular  by using below command
+```
+docker push <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
 ```
 * WHERE
     * URL - it is used to push docker to  docker.io(dockerhub), ECR(Elastic Container Registroy), Nexus docker registroy etc.. 
