@@ -23,6 +23,7 @@
         * isolated from other servers
     * resource utilisation is good in VM
 3. Containerization
+    * process of packing applications along with its dependencies
     * we will have containers installed in VM...
     * containers are isolated from each other, system resources are shared...
     * containers take resources based on demand, it don't block resources
