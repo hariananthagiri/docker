@@ -1,4 +1,5 @@
 # DOCKER
+* docker is a containerization platform for packaging, deploying, and running applications as **CONTAINERS**
 * It is a tool that create containers
 * docker runs on linux servers not on windows 
 * in windows we have a software called docker desktop but this software runs linux in background
@@ -40,7 +41,9 @@
 * number of layers
 * Doker image = **application code + Dependencys + Libraries & Tools + Base OS**
 #### Container
-* it is like vircual meachine it does not have any OS
+* a way to package applications with all necessary dependencies and configuration
+* it can be easly shared
+* it is like vircual meachine it does not have any OS use OS of the host
 * container is nothing but a VM like light weight VM 
 * when you run the docker image you will get the container
 * container is the running version of docker image
