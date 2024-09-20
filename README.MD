@@ -339,6 +339,7 @@ ADD <URL> /desination/path/
     * when ever you do changes rebuild the image that time
 
 9. ENTRYPOINT
+    * CMD & ENTRYPOINT both will run at container creation time
 * **CMD vs ENTRYPOINT**
     1. CMD command can be overridden by another command at run time.
         * ping google.com ping yahoo.com
