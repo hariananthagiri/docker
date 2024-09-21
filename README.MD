@@ -490,11 +490,6 @@ docker run -d image:version --network=network_name
 * Docker Compose is a tool for defining and running multi-container applications.
 * it create network, valumes, and attach network and valumes to containers
 * it Start, stop, and rebuild services
-* you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
-* it contains a file with default name **docker-compose.yaml**
-* **docker-compose.yaml**
-* containers are nothing but services
-* it is used to manage the services
 * **INSTALLATION**
 * run below commands to install docker compose tool
 ```
@@ -505,3 +500,28 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 docker compose
 ```
+* you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
+* it contains a file with default name **docker-compose.yaml**
+* **docker-compose.yaml**
+* containers are nothing but services
+* it is used to manage the services
+```yaml
+networks:
+  default:
+    external:
+      name: <network-name>
+services:
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
+    volumes:
+    - source: mongodb
+      target: /data/db
+      type: volume
+    ports:
+    - "80:80"
+    depends_on:
+    - catalogue
+    - cart
+```
+
