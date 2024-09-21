@@ -112,9 +112,9 @@ docker rm -f container_id (to remove without stoping force remove)
 ```
 * to do **PULL+CREATE+START** pull images and create container and start container at a time use below command
 ```
-docker run image_name (it will run in foreground)
+docker run image_name:version (it will run in foreground)
 
-docker run -d image_name (it is for detach it will run in background)
+docker run -d image_name:version (it is for detach it will run in background)
 ```
 * to remove images from docker use below command
 ```
@@ -132,7 +132,7 @@ docker ps -a -q (for container)
 ```
 * to mentiom the port number in docker use below command
 ```
-docker run -d -p host port-number:container port-number image_name
+docker run -d -p host port-number:container port-number image_name:version
 ```
 * host port-number is user defind we can give whatever we want
 * container port-number is docker port it is fixed we can give our own 
@@ -186,8 +186,8 @@ docker inspect <image_id> or <image_name>
 * We can build the docker images and push to any docker repository
 * we can buid docker image localy use below command
 ```
-docker build  <IMAGE>:<VERSION> .
-docker build -t <IMAGE>:<VERSION> .
+docker build  <IMAGE>:<VERSION> . 
+docker build -t <IMAGE>:<VERSION> . 
 ```
 * if we want to push what we build localy by using below command
 ```
