@@ -508,7 +508,7 @@ docker compose
 ```yaml
 networks:
   default:
-    external:
+    external: true
       name: <network-name>
 services:
   mongodb:
@@ -524,4 +524,11 @@ services:
     - catalogue
     - cart
 ```
-
+* to build all containers at a time use below command
+```
+docker compose up -d
+```
+* to remove all containers at a time use below command
+```
+docker compose down
+```
