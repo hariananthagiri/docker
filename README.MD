@@ -112,7 +112,7 @@ docker rm -f container_id (to remove without stoping force remove)
 ```
 * to do **PULL+CREATE+START** pull images and create container and start container at a time use below command
 ```
-docker run image_name:version (it will run in foreground)
+docker run image_name:version (it will run in foreground (it show output directly))
 
 docker run -d image_name:version (it is for detach it will run in background)
 ```
@@ -254,6 +254,10 @@ RUN yum install nginx -y
 CMD ["nginx","-g","daemon off;"]
 ```
 * every word is given saparetly in double quotes and saperated with cama(,)
+* we can override the given command ad run new command at run time as below
+```
+docker run image_name:version <command>
+```
 
 * **RUN vs CMD**
     * RUN instruction runs at the time of image building
@@ -369,7 +373,9 @@ docker exec -it c02a912a bash
 ```
 
 12. ARG
+    * ARG variables only accessble at build time
 * **ARG vs ENV**
+    * ENV variables accessble at build time and run time
     * ARG instruction can provide values to the Dockerfile only at buildtime. ENV variables have access in the container
     * How can I use ARG variables inside container?
     * Assign the values of ARG to ENV variables so that you can access them inside container as well
@@ -377,11 +383,15 @@ docker exec -it c02a912a bash
     * ARG value deffnied before FROM will not be accessed after FROM
 * **SYNTAX**
 ```
---build-arg variable=value
+ARG <variable_name> 
+```
+* variable value is passed at build time as below command
+```
+--build-arg variable_name=value
 ```
 * we pass values at build time by using below command
 ```
-docker build -t image-name:version --build-arg variable=value .
+docker build -t image-name:version --build-arg variable_name=value .
 ```
 * **EXAMPLE**
 ```
@@ -435,4 +445,5 @@ FROM centos:8
 ```
 variable_name=value
 $variable_name (to use the stored variable value)
+variable_name=${variable_name}
 ```
