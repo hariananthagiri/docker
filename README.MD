@@ -385,6 +385,10 @@ docker exec -it c02a912a bash
 ```
 ARG <variable_name> 
 ```
+* if we forgot to give the variable value at build time we can give the default value as below
+```
+${variable_name:-default_value}
+```
 * variable value is passed at build time as below command
 ```
 --build-arg variable_name=value
@@ -415,7 +419,8 @@ ONBUILD RUN <command>
 
 * **GENRAL SYNTAX OF DOCKER WITH INSTRUCTION**
 ``` Dockerfile
-FROM centos:8
+ARG version
+FROM centos:${version:-8} # (in this way we can give default value)
 RUN yum install nginx -y
 CMD ["google.com"]
 ENTRYPOINT ["ping"]
