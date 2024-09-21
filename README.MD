@@ -182,7 +182,7 @@ docker inspect <image_id> or <image_name>
 * we will store multiple websites in single server and manage it with port numbers
 
 #### Dockerfiles
-* A decleretive way of createing our own image...
+* A decleretive way of createing our own custamized image...
 * We can build the docker images and push to any docker repository
 * we can buid docker image localy use below command
 ```
@@ -451,4 +451,57 @@ FROM centos:8
 variable_name=value
 $variable_name (to use the stored variable value)
 variable_name=${variable_name}
+```
+##### NOTE
+* container cannot communicate with each other through names if they use docker default networks
+##### NETWORKING
+* you should not use docker default network you should create you own network
+* docker contains two types of networking
+    1. host
+    2. bridge
+* by default docker use **bridge** networking for containers
+* createing own network in docker by using below command 
+```
+docker network (it will show multiple options)
+docker network <command>
+```
+* it will have multiple commands as shown below
+```
+docker network create <network_name>
+docker network connect <network_name>
+docker network disconnect <network_name>
+docker network rm <network_name>
+docker network inspect <network_name>
+docker network ls 
+docker network prune (remove all unused networks)
+```
+* after createing network we get network id
+* to see all the networks running in docker use below command
+```
+ifconfig
+```
+* to make use of our created networks while running the container use below command
+```
+--network=network_name
+docker run -d image:version --network=network_name
+```
+
+##### Docker Compose
+* Docker Compose is a tool for defining and running multi-container applications.
+* it create network, valumes, and attach network and valumes to containers
+* it Start, stop, and rebuild services
+* you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
+* it contains a file with default name **docker-compose.yaml**
+* **docker-compose.yaml**
+* containers are nothing but services
+* it is used to manage the services
+* **INSTALLATION**
+* run below commands to install docker compose tool
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose 
+```
+* to know the commands avaialble in docker compose use below command
+```
+docker compose
 ```
