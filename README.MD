@@ -410,7 +410,7 @@ ENV COURSE=${COURSE}
 
 13. ONBUILD
     * author of image: I want to force users of image to follow something
-    * it wont run on build time
+    * it wont run on build time it will run at the time of other person using it
 * **SYNTAX**
 ```
 ONBUILD ADD index.html /usr/share/nginx/html/
