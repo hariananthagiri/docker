@@ -532,3 +532,21 @@ docker compose up -d
 ```
 docker compose down
 ```
+* **NOTE**
+* JAVA SPECIALITY
+* Source code ==> compile ==> byte code(jar file) ==> run byte code
+* JDK ==> java devlopment kit
+* JRE ==> java runtime environment
+* JDK > JRE JRE is a subset of JDK 
+* JDK(memory) > JRE(memory)
+* 
+
+##### BEST PRACTICES IN DOCKER
+1. use official images
+    * official images contains bradge
+2. create custom dockerfiles
+    * avide modifying official images and create your own image based on your requirement
+3. keep containers small
+    * use smaller images that reduces the deployment time and disk space by using bare minimum os
+        * ex:- alpine, distro, coreos e.t.c
+4. use multi stage builds
