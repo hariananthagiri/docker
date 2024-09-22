@@ -232,13 +232,19 @@ FROM centos:8
     * if you want to install any sotweres run any commnd or configure anything at the time of image building we use it
 * **SYNTAX**
 ```
-RUN <PACKAGE_NAME>
+RUN <COMMAND>
 ```
 * **example**
 ```
 #almalinux is same as centos
 FROM almalinux:8
 RUN yum install nginx -y
+```
+* to ru mutiple commands in single sinstruction use as below
+```
+RUN yum install nginx -y \
+    && yum install git -y \
+    && yum install ansible -y
 ```
 
 3. CMD
@@ -608,4 +614,19 @@ docker compose down
 6. create container and response to client
 
 ###### DOCKER LAYERS
-* 
+* every instruction we write in docker is a layer
+1. base image
+    * creates container out of first instruction, this is called as intermediate container
+2. runs second instruction in the container, creates image out of this
+3. creates container out of 2 instructions.
+4. runs the command in the intermediate container. creates image out of these 3
+* **EXAMPLE**
+```
+FROM node:18.19.1-alpine3.19    ==> creates container-1 here
+runs EXPOSE 8080 in container-1 ==> creates image-1 out of this container-1
+create container-2 out of image-1
+runs this command addgroup -S roboshop && adduser -S roboshop -G roboshop in container-2 ==> creates image-2 out of this conatiner-2
+creates container-3 out of this image-2
+RUNS 
+```
+* **image ==> container ==> image ==> container**
