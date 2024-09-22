@@ -215,14 +215,14 @@ docker push <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
     * it is used to select base os
 * **SYNTAX**
 ```
-FROM <BASE_OS-IMAGE>:<VERSION> 
+FROM <BASE-IMAGE_OS>:<VERSION> 
 ```
 * **example**
 ```
 FROM centos:8
 ```
-* **BASEOS**
-    * which os you want ex- centos, ubuntu, etc...
+* **BASE_IMAGE_OS**
+    * which IMAGE OS you want ex- centos, ubuntu, alpine, almalinux etc...
 * **VERSION**
     * If we won't give any version by default it takes latest
 
