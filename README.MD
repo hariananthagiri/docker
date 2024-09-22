@@ -247,7 +247,7 @@ RUN yum install nginx -y
     * CMD command can be overridden by another command at run time.
         * ping google.com ping yahoo.com
 * **NOTE**
-    * systemctl commands will not work in containers...
+    * systemctl commands will not work in containers we will manage it with CMD instruction
     * command should be foregrounded and attached to the screen then you send it into background (to do this we use -d)
 * **SYNTAX**
 ```
