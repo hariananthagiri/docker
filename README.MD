@@ -595,7 +595,7 @@ docker compose down
 4. use multi stage builds
 5. use docker valumes to protest data
 6. use custom networks to isolate containers from other projects
-7. remove unuse data from docker by using below command
+7. remove unused data from docker by using below command
     ```
     docker system prune 
     ```
