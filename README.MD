@@ -486,6 +486,47 @@ ifconfig
 docker run -d image:version --network=network_name
 ```
 
+##### DOCKER VOLUMES
+* Containers are temporary when you remove the container data by default will be deleted to avide this we use volumes
+* to see where the data is getteing stored use docker inspect command and goto DATA  you can see the path where it getting stored
+* create a directory and give it as valume now if container is deleted even through the data is stored in that directory
+* to see the valume use below command
+```
+find . -iname "volume.html"
+```
+* to save the data we use docker volumes it is of two types
+1. unnamed valumes
+     * it cannot be manged by docker commands
+2. named volumes
+    * it can be manged by docker commands
+* to use valumes use below command
+```
+-v host-path:container-path
+```
+* while createing we have to use above command as shown below
+```
+docker run -d -p host-port:container-port -v host-path:container-path  image:version
+```
+* where 
+    * host-path (source-path) and valume name
+    * container-path(destination-path)
+* **EXAMPLE**
+```
+docker run -d -p 80:80 -v /home/centos/nginx-data:/usr/share/nginx/html nginx
+```
+* to see the commnds related to volumes use below command
+```
+docker volume
+```
+* commands related to volume as given below
+```
+docker volume create <volume_name>
+docker volume rm <volume_name>
+docker volume inspect <volume_name>
+docker volume prune (to remove un used local volumes)
+docker volume ls
+```
+
 ##### Docker Compose
 * Docker Compose is a tool for defining and running multi-container applications.
 * it create network, valumes, and attach network and valumes to containers
@@ -540,47 +581,7 @@ docker compose down
 * JDK > JRE JRE is a subset of JDK 
 * JDK(memory) > JRE(memory)
 
-##### DOCKER VOLUMES
-* Containers are temporary when you remove the container data by default will be deleted to avide this we use volumes
-* to see where the data is getteing stored use docker inspect command and goto DATA  you can see the path where it getting stored
-* create a directory and give it as valume now if container is deleted even through the data is stored in that directory
-* to see the valume use below command
-```
-find . -iname "volume.html"
-```
-* to save the data we use docker volumes it is of two types
-1. unnamed valumes
-     * it cannot be manged by docker commands
-2. named volumes
-    * it can be manged by docker commands
-* to use valumes use below command
-```
--v host-path:container-path
-```
-* while createing we have to use above command as shown below
-```
-docker run -d -p host-port:container-port -v host-path:container-path  image:version
-```
-* where 
-    * host-path (source-path) and valume name
-    * container-path(destination-path)
-* **EXAMPLE**
-```
-docker run -d -p 80:80 -v /home/centos/nginx-data:/usr/share/nginx/html nginx
-```
-* to see the commnds related to volumes use below command
-```
-docker volume
-```
-* commands related to volume as given below
-```
-docker volume create <volume_name>
-docker volume rm <volume_name>
-docker volume inspect <volume_name>
-docker volume prune (to remove un used local volumes)
-docker volume ls
 
-```
 ##### BEST PRACTICES IN DOCKER
 1. use official images
     * official images contains bradge
