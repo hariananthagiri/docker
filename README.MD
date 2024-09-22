@@ -499,9 +499,11 @@ find . -iname "volume.html"
      * it cannot be manged by docker commands
 2. named volumes
     * it can be manged by docker commands
+* avide running volumes with root user because it wil get full acces not recommended
 * to use valumes use below command
 ```
 -v host-path:container-path
+-v /:container-path (running with root user)
 ```
 * while createing we have to use above command as shown below
 ```
@@ -593,3 +595,17 @@ docker compose down
 4. use multi stage builds
 5. use docker valumes to protest data
 6. use custom networks to isolate containers from other projects
+7. remove unuse data from docker by using below command
+    ```
+    docker system prune 
+    ```
+###### DOCKER ARCHITECTURE
+1. docker shell/ docker command send a request to docker deamon
+2. docker engine receives the request
+3. it will check whether image is available in local or not
+4. if available it will create container and show the response in client
+5. if not available, it will pul from docker central hub, keep it in local.
+6. create container and response to client
+
+###### DOCKER LAYERS
+* 
