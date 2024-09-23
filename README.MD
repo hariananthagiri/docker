@@ -653,4 +653,19 @@ creates container-3 out of this image-2
 RUNS 
 ```
 * **image ==> container ==> image ==> container**
+* **DISADVANTAGES OF DOCKER**
+1. we have a docker host where all containers are running
+	* what if docker host crash? we lose all containers
+	* even we use docker volumes, data is still in the host, so we lost data as well
+2. what if traffic increases/decreases? are our containers scalable
+3. even we have multiple containers to balance the load? who is the LB here?
+4. what if some container crashes? can docker make it available again?
+5. what about configurations and secrets? where to store them?
+6. what if we have multiple hosts running with containers
+* docker is used for building the images...it can also run containers but have lot of above disadvantages..
+* TO OVERCOME THIS 
+* we need some orchestrator?
+    * kubernetes is popular container orchestration tool. 
+* SO WE USE DOCKER TOOL TO BUILD IMAGES BECAUSE IS DOCKER IS BEST TOOL TO BUILD IMAGES
+* WE USE KUBARNATIES TO RUN AND MANGE CONTAINERS
 
