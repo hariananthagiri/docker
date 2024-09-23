@@ -36,6 +36,7 @@
 * **container is the running version of image**
 * we will get all these images pulled from docker hub we have to signup to docker hub account 
 #### Docker image
+* docker image will be created using docker file
 * it is a read only template, a lightweight standalone executable package of softwere that includes everything needed to run an application
 * it contains set of instructions for createing a container that run on docker platform
 * immutable
@@ -72,6 +73,27 @@ usermod -aG docker centos
 ```
 * after add centos to docker group logout once and login again then you can erun all the commands related to docker in centos
 
+##### PUSH & PULL FROM DOCKER HUB
+* first login to your docker hub from docker vm by using below command
+```
+docker login
+```
+* give your username & password to login
+1. PULL
+    * Docker hub ===> VM
+    * to pull images from docker use below command
+    ```
+    docker pull <image-name>:<tag>
+    ```
+2. PUSH
+    * in order to push something to docker hub we must have a docker hub account
+    * to push from vm to docker hub use below command
+    ```
+    docker login
+    docker tag  <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+    docker push <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+    ``` 
+
 #### docker commands
 * to show the images exist in server use below command
 ```
@@ -79,7 +101,7 @@ docker images
 ```
 * to pull an image use below command
 ```
-docker pull image_name
+docker pull image_name:tag
 ```
 * to pull a partical version image use below command and default tag was latest
 ```
@@ -201,7 +223,7 @@ docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
 ```
 docker tag <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
 docker login
-docker push <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+docker push <URL>/<USER_NAME>/<IMAGE>:<VERSION>
 ```
 
 * WHERE
@@ -225,6 +247,7 @@ FROM centos:8
     * which IMAGE OS you want ex- centos, ubuntu, alpine, almalinux etc...
 * **VERSION**
     * If we won't give any version by default it takes latest
+    * VERSION OR TAG
 
 2. RUN
     * It is used to install packages or configure the image inside the base OS
@@ -630,3 +653,4 @@ creates container-3 out of this image-2
 RUNS 
 ```
 * **image ==> container ==> image ==> container**
+
