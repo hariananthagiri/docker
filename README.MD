@@ -33,7 +33,7 @@
 * **Docker Image** = Base OS(5MB-250MB) + application run time + created users + created a directory + installed application = max 500MB = immutable image = can take from DEV to PROD  
 * Docker is portable
 * **image is static ==> VM**
-* **container is the running version of image**
+* **container is the running version or tag of image**
 * we will get all these images pulled from docker hub we have to signup to docker hub account 
 #### Docker image
 * docker image will be created using docker file
@@ -48,7 +48,7 @@
 * it is like vircual meachine it does not have any OS use OS of the host
 * container is nothing but a VM like light weight VM 
 * when you run the docker image you will get the container
-* container is the running version of docker image
+* container is the running version or tag of docker image
 ### Docker installation
 * create a server(centos) by loging in to aws account 
 * go to chrome type docker install click on docker engine select centos
@@ -90,8 +90,8 @@ docker login
     * to push from vm to docker hub use below command
     ```
     docker login
-    docker tag  <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
-    docker push <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+    docker tag  <IMAGE>:<version or tag> <URL>/<USER_NAME>/<IMAGE>:<version or tag>
+    docker push <URL>/<USER_NAME>/<IMAGE>:<version or tag>
     ``` 
 
 #### docker commands
@@ -103,13 +103,13 @@ docker images
 ```
 docker pull image_name:tag
 ```
-* to pull a partical version image use below command and default tag was latest
+* to pull a partical version or tag image use below command and default tag was latest
 ```
-docker pull image_name:version or tag
+docker pull image_name:version or tag or tag
 ```
 * to create a container use below command
 ```
-docker create image_name or image_id:version
+docker create image_name or image_id:version or tag
 ```
 * to see the running containers in docker use below command
 ```
@@ -134,9 +134,9 @@ docker rm -f container_id (to remove without stoping force remove)
 ```
 * to do **PULL+CREATE+START** pull images and create container and start container at a time use below command
 ```
-docker run image_name:version (it will run in foreground (it show output directly))
+docker run image_name:version or tag (it will run in foreground (it show output directly))
 
-docker run -d image_name:version (it is for detach it will run in background)
+docker run -d image_name:version or tag (it is for detach it will run in background)
 ```
 * to remove images from docker use below command
 ```
@@ -154,7 +154,7 @@ docker ps -a -q (for container)
 ```
 * to mentiom the port number in docker use below command
 ```
-docker run -d -p host port-number:container port-number image_name:version
+docker run -d -p host port-number:container port-number image_name:version or tag
 ```
 * host port-number is user defind we can give whatever we want
 * container port-number is docker port it is fixed we can give our own 
@@ -172,7 +172,7 @@ ctrl + c
 ```
 * to login to the existing container or running container use below command
 ```
-docker exec -it <container_id> or <name>:<version> bash or sh
+docker exec -it <container_id> or <name>:<version or tag> bash or sh
 ```
 * now you can login with root axis and conatainer_id as there (i.e root@a764b7f56dbb:/#)
 * where
@@ -208,22 +208,22 @@ docker inspect <image_id> or <image_name>
 * We can build the docker images and push to any docker repository
 * we can buid docker image localy use below command
 ```
-docker build  <IMAGE>:<VERSION> . 
-docker build -t <IMAGE>:<VERSION> . 
+docker build  <IMAGE>:<version or tag> . 
+docker build -t <IMAGE>:<version or tag> . 
 ```
 * if we want to push what we build localy by using below command
 ```
-docker tag  <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+docker tag  <IMAGE>:<version or tag> <URL>/<USER_NAME>/<IMAGE>:<version or tag>
 ```
 * to build docker image to docker use below command
 ```
-docker build -t <URL>/<USER_NAME>/<IMAGE>:<VERSION> .
+docker build -t <URL>/<USER_NAME>/<IMAGE>:<version or tag> .
 ```
 * if we want to push to docker hub what we build by using below command
 ```
-docker tag <IMAGE>:<VERSION> <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+docker tag <IMAGE>:<version or tag> <URL>/<USER_NAME>/<IMAGE>:<version or tag>
 docker login
-docker push <URL>/<USER_NAME>/<IMAGE>:<VERSION>
+docker push <URL>/<USER_NAME>/<IMAGE>:<version or tag>
 ```
 
 * WHERE
@@ -237,7 +237,7 @@ docker push <URL>/<USER_NAME>/<IMAGE>:<VERSION>
     * it is used to select base os
 * **SYNTAX**
 ```
-FROM <BASE-IMAGE_OS>:<VERSION> 
+FROM <BASE-IMAGE_OS>:<version or tag> 
 ```
 * **example**
 ```
@@ -245,9 +245,9 @@ FROM centos:8
 ```
 * **BASE_IMAGE_OS**
     * which IMAGE OS you want ex- centos, ubuntu, alpine, almalinux etc...
-* **VERSION**
-    * If we won't give any version by default it takes latest
-    * VERSION OR TAG
+* **version or tag**
+    * If we won't give any version or tag by default it takes latest
+    * version or tag OR TAG
 
 2. RUN
     * It is used to install packages or configure the image inside the base OS
@@ -285,7 +285,7 @@ CMD ["nginx","-g","daemon off;"]
 * every word is given saparetly in double quotes and saperated with cama(,)
 * we can override the given command ad run new command at run time as below
 ```
-docker run image_name:version <command>
+docker run image_name:version or tag <command>
 ```
 
 * **RUN vs CMD**
@@ -424,7 +424,7 @@ ${variable_name:-default_value}
 ```
 * we pass values at build time by using below command
 ```
-docker build -t image-name:version --build-arg variable_name=value .
+docker build -t image-name:version or tag --build-arg variable_name=value .
 ```
 * **EXAMPLE**
 ```
@@ -448,8 +448,8 @@ ONBUILD RUN <command>
 
 * **GENRAL SYNTAX OF DOCKER WITH INSTRUCTION**
 ``` Dockerfile
-ARG version
-FROM centos:${version:-8} # (in this way we can give default value)
+ARG version or tag
+FROM centos:${version or tag:-8} # (in this way we can give default value)
 RUN yum install nginx -y
 CMD ["google.com"]
 ENTRYPOINT ["ping"]
@@ -469,10 +469,10 @@ ONBUILD ADD index.html /usr/share/nginx/html/
 * ARG value deffnied before FROM will not be accessed after FROM
 * **SYNTAX**
 ``` Dockerfile
-ARG version
+ARG version or tag
 FROM centos:8
 ```
-* we cant use version after from instruction
+* we cant use version or tag after from instruction
 
 * **VARIABLE**
 * TO USE THE VARIABLE USE AS BELOW
@@ -512,7 +512,7 @@ ifconfig
 * to make use of our created networks while running the container use below command
 ```
 --network=network_name
-docker run -d image:version --network=network_name
+docker run -d image:version or tag --network=network_name
 ```
 
 ##### DOCKER VOLUMES
@@ -536,7 +536,7 @@ find . -iname "volume.html"
 ```
 * while createing we have to use above command as shown below
 ```
-docker run -d -p host-port:container-port -v host-path:container-path  image:version
+docker run -d -p host-port:container-port -v host-path:container-path  image:version or tag
 ```
 * where 
     * host-path (source-path) and valume name
