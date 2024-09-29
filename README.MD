@@ -95,6 +95,10 @@ docker login
     ``` 
 
 #### docker commands
+* to know how much memory used by docker use below command
+```
+docker stats
+```
 * to show the images exist in server use below command
 ```
 docker images
